@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion del lado del Cliente</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/estilos.css"> -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=nQLdmUhBadc35jjt49umRHdqH_LAGs3nFfDWaYN0OTXFGEkan_K1IS_naUBgbi2aV6Gjdo6DyMqcyADm_YV36_mH16ouS6dOUftilEZ2e8HAP45_hdthw-NAYn4uCiNKx6r6Qnw4H7F018oro0DlYqVeZ3_VP-Bk4n1uAa2X0jo" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvNzg0MTM0MjUxMzkzMTg3ODcxLzgwMTQ1NDMzNDUzNzEwNTQzOC9kZW1vc3RyYWNpb24wNy5odG1s"/></head>
+<body>
+    <h1>Validacion de formulario</h1>
+    <div id="info">
+
+    </div>
+    <div class="caja" >
+        <form name="miform" action="principal.html" method="POST" onsubmit="return validarformulario();">
+            <table class="tabla">
+                <tr>
+                    <td class="titulo">Usuario</td>
+                    <td>
+                        <input class="texto"type="text" name="nombre" >
+                    </td>
+                    <td><div id="n"></div></td>
+                </tr>
+                <tr>
+                    <td class="titulo">Password</td>
+                    <td>
+                        <input class="texto" type="number" name="password" >
+                    </td>
+                    <td id="c"></td>
+                </tr>
+                <tr>
+                    <td class="btn" colspan="2"><input class="boton" type="submit" name="" value="Enviar Datos" ></td>
+                </tr>
+            </table>
+        </form>
+        <script type="text/javascript">
+        function validarformulario(){ 
+            var texto;
+            var usuario=document.forms['miform']['nombre'].value;
+            //null es un valor - para poder comparar 
+            if(usuario==null||usuario=="")
+            {
+            texto="<span style='color:red'>Ingresar el nombre del usuario</span>";
+            document.getElementById('n').innerHTML=texto;
+            // return false; //Bloqueo de la continuacion
+            } else if (usuario.length<5)
+            {
+                texto="<span style='color:red'>El usuario debe tener mínimo 5 caracteres</span>"; 
+                document.getElementById('n').innerHTML=texto;
+            // return false;
+            }
+            var password=document.forms['miform']['password'].value;
+            if(password==null||password<2020)
+            {
+            texto="<span style='color:red'>Ingresar 9 </span>";
+            document.getElementById('c').innerHTML=texto;
+            return false;
+            } 
+            
+        }
+        </script>
+    </div>
+</body>
+</html>
